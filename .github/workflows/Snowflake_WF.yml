@@ -68,7 +68,7 @@ jobs:
   deploy-test:
    runs-on: 'ubuntu-latest'
    environment: 'Test'
-   needs: [deploy-snowflake-changes-job , deploy-dev]
+   needs: [deploy-snowflake-changes-jobs_Dev]
    steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
