@@ -80,12 +80,12 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.TEST_SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.TEST_SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.TEST_SF_PASSWORD }}
-          run: |
+        run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          #python --version
+          python --version
           echo "Step 3: Running schemachange for Test Env"
-          #pip install schemachange
-          echo "Step 4: Running schemachange fro test" 
+          pip install schemachange
+          echo "Step 4: Running schemachange fro test"
           
           schemachange -f $GITHUB_WORKSPACE/DWCode/Claims/Functions        -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Claims/Procedures       -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
