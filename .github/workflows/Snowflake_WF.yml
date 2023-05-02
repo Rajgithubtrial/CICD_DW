@@ -70,7 +70,7 @@ jobs:
   deploy-test:
    runs-on: 'ubuntu-latest'
    environment: 'Test'
-   needs: [build-and-publish , deploy-dev]
+   needs: [deploy-snowflake-changes-job , deploy-dev]
    steps:
       - name: Run schemachange
         env:
