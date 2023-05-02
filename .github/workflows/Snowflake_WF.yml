@@ -1,4 +1,4 @@
-name: dev
+name: dev_env
 # Controls when the action will run. 
 on:
   push:
@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-publish:
+  deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,10 +26,10 @@ jobs:
           python-version: 3.8.x
 
   deploy-dev:
-   runs-on: 'ubuntu-latest'
-   environment: 'Dev'
-   needs: build-and-publish
-   steps:
+    runs-on: 'ubuntu-latest'
+    environment: 'Dev'
+    needs: deploy-snowflake-changes-job:
+    steps:
       - name: Run schemachange
         env:
           SF_ACCOUNT: ${{ secrets.DEV_SF_ACCOUNT }}
