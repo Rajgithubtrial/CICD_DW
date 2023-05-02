@@ -30,7 +30,6 @@ jobs:
     #runs-on: 'ubuntu-latest'
     
     #needs: deploy-snowflake-changes-job
-    steps:
       - name: Run schemachange
         env:
           SF_ACCOUNT: ${{ secrets.DEV_SF_ACCOUNT }}
