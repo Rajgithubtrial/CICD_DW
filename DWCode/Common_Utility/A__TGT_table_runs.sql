@@ -1,3 +1,4 @@
+--Test
 CREATE Schema if not exists DW_TGT_POC;
 
 USE Schema DW_TGT_POC;
@@ -10,5 +11,4 @@ create table if not exists TGT_Deploymnt (
 
 INSERT INTO TGT_Deploymnt (Deployment) VALUES ('TEST run time 2: ');
 
---test8
 
