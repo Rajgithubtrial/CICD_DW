@@ -28,7 +28,7 @@ jobs:
   deploy-dev:
     runs-on: 'ubuntu-latest'
     environment: 'Dev'
-    needs: deploy-snowflake-changes-job:
+    needs: deploy-snowflake-changes-job
     steps:
       - name: Run schemachange
         env:
