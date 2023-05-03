@@ -37,11 +37,11 @@ jobs:
           SF_DATABASE: ${{ secrets.DEV_SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.DEV_SF_PASSWORD }}
         run: |
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          python --version
-          Python $GITHUB_WORKSPACE/DWCode/Config/Paths.py
-          python --version
-          shell: sh
+            echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+            python --version
+            echo "Step 1: Installing schemachange"
+            pip install schemachange
+            echo "Step 2: Running schemachange " 
         
           
   deploy-test:
