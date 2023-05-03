@@ -42,6 +42,7 @@ jobs:
             echo "Step 1: Installing schemachange"
             pip install schemachange
             echo "Step 2: Running schemachange " 
+            Python $GITHUB_WORKSPACE/DWCode/Config/Paths.py
         
           
   deploy-test:
