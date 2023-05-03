@@ -23,3 +23,9 @@ CREATE TABLE if not exists Sample8_Care_TGT
 , P_NAME VARCHAR2(10)
 , P_ADDRESS VARCHAR2(300)
 );
+
+CREATE TABLE if not exists Sample9_Care_TGT
+(Patient_ID NUMBER
+, P_NAME VARCHAR2(10)
+, P_ADDRESS VARCHAR2(300)
+);
