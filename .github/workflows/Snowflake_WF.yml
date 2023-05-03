@@ -16,7 +16,7 @@ jobs:
   deploy-snowflake-changes-jobs_Dev:
     runs-on: ubuntu-latest
     environment: 'Dev'
-    uses: 
+    
     
 
     steps:
@@ -38,7 +38,7 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.DEV_SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.DEV_SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.DEV_SF_PASSWORD }}
-        uses: GITHUB_WORKSPACE/Paths.yml
+        uses: actions/checkout/Paths.yml
        # run: 
         #python $GITHUB_WORKSPACE/Paths.py 
         #shell: sh 
