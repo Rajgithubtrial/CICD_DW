@@ -36,14 +36,15 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.DEV_SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.DEV_SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.DEV_SF_PASSWORD }}
-        run: python ${{ GITHUB_WORKSPACE }}/Paths.py
-            echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-            python --version
-            echo "Step 1: Installing schemachange"
-            pip install schemachange
-            echo "Step 2: Running schemachange " 
-           # Python $GITHUB_WORKSPACE/DWCode/Config/Paths.py
+        run: python ${{ GITHUB_WORKSPACE }}/Paths.py 
         shell: sh 
+        #echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+           #python --version
+           #echo "Step 1: Installing schemachange"
+           #pip install schemachange
+           #echo "Step 2: Running schemachange " 
+           # Python $GITHUB_WORKSPACE/DWCode/Config/Paths.py
+        
   deploy-test:
    runs-on: 'ubuntu-latest'
    environment: 'Test'
