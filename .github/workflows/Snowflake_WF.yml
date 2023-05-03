@@ -35,7 +35,8 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.DEV_SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.DEV_SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.DEV_SF_PASSWORD }}
-        run: Python $GITHUB_WORKSPACE/DWCode/Config/Paths.py
+        run: |
+        Python ./DWCode/Config/Paths.py
           
   deploy-test:
    runs-on: 'ubuntu-latest'
