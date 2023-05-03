@@ -1,4 +1,4 @@
---//test7
+--//test8
 CREATE Schema if not exists  DW_STG_POC;
 
 USE Schema DW_STG_POC;
