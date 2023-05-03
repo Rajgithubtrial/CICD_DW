@@ -36,11 +36,11 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.DEV_SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.DEV_SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.DEV_SF_PASSWORD }}
-        run: | 
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+        run: echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
           Python $GITHUB_WORKSPACE/DWCode/Config/Paths.py
           python --version
+          shell: sh
         
           
   deploy-test:
