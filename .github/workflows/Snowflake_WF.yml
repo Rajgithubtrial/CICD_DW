@@ -20,14 +20,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
-      - name: use path yml
-        uses: $GITHUB_WORKSPACE/.github/workflows/Paths.yml
     
       - name: Use Python 3.8.x
         uses: actions/setup-python@v2.2.1
         with:
          python-version: 3.8.x
+         
+      - name: use path yml
+        uses: actions/.github/workflows/Paths.yml
     
    # steps:
    #   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
