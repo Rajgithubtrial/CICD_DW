@@ -10,6 +10,9 @@ jobs:
     environment: 'Dev'
     
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name: Run schemachange for Dev
           env:
             SF_ACCOUNT: ${{ secrets.DEV_SF_ACCOUNT }}
