@@ -3,12 +3,6 @@ on:
    
      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     
-   steps:
-     - name: Use Python 3.8.x
-       uses: actions/setup-python@v2.2.1
-       with:
-         python-version: 3.8.x
-   
    
      - name: Run schemachange for Dev
        env:
