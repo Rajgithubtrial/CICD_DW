@@ -16,6 +16,7 @@ jobs:
   deploy-snowflake-changes-jobs_Dev:
     runs-on: ubuntu-latest
     environment: 'Dev'
+    uses: actions/checkout@v2
     uses: .github/workflows/Paths.yml
     
 
