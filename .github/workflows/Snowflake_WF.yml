@@ -7,6 +7,9 @@ on:
       - 'DWCode/**'
   #pull_request:
     #branches: ["Dev"]
+    
+env:
+    DEVOPS_DIR: DWCode
   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -36,7 +39,7 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.DEV_SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.DEV_SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.DEV_SF_PASSWORD }}
-        run: python $GITHUB_WORKSPACE/Paths.py 
+        run: python $DEVOPS_DIR/Paths.py 
         shell: sh 
         #echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
            #python --version
