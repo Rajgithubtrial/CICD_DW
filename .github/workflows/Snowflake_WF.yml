@@ -4,12 +4,12 @@ on:
   #push:
    # branches: ["Dev"]
     #paths:
-      - 'DWCode/**'
-  pull_request:
+     # - 'DWCode/**'
+   pull_request:
     branches: ["Dev"]
   
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+#workflow_dispatch:
 
 jobs:
   deploy-snowflake-changes-jobs_Dev:
