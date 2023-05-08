@@ -4,7 +4,7 @@ on:
   #push:
    # branches: ["Dev"]
     #paths:
-      - 'DWCode/**'
+    #  - 'DWCode/**'
   pull_request:
     branches: ["Dev"]
   
