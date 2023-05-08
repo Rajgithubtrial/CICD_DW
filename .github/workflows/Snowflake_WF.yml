@@ -1,15 +1,15 @@
 name: dev_env
 # Controls when the action will run. 
 on:
-  #push:
-   # branches: ["Dev"]
-    #paths:
-     # - 'DWCode/**'
-   pull_request:
+  push:
     branches: ["Dev"]
+    paths:
+      - 'DWCode/**'
+  #pull_request:
+    #branches: ["Dev"]
   
   # Allows you to run this workflow manually from the Actions tab
-#workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   deploy-snowflake-changes-jobs_Dev:
@@ -38,16 +38,17 @@ jobs:
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
-          echo " 1: Installing schemachange"
+          echo "Step 1: Installing schemachange"
           pip install schemachange
           echo "Step 2: Running schemachange " 
+          
           schemachange -f $GITHUB_WORKSPACE/DWCode/Claims/Functions        -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Claims/Procedures       -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Claims/Tables           -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Claims/Views            -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Medication/Functions      -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Medication/Procedures     -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
-          schemachange -f $GITHUB_WORKSPACE/DWCode/Medication/Tables         -a $SF_ACCOUNStepT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
+          schemachange -f $GITHUB_WORKSPACE/DWCode/Medication/Tables         -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Medication/Views          -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Organization/Functions     -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Organization/Procedures    -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
@@ -86,7 +87,7 @@ jobs:
           python --version
           echo "Step 3: Running schemachange for Test Env"
           pip install schemachange
-          echo "Step 4: Running schemachange fro test"
+          echo "Step 4: Running schemachange for test"
           
           schemachange -f $GITHUB_WORKSPACE/DWCode/Claims/Functions        -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
           schemachange -f $GITHUB_WORKSPACE/DWCode/Claims/Procedures       -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
