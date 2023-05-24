@@ -3,7 +3,7 @@ name: dev_env
 on:
   push:
     branches: ["Release*"]
-     paths:
+    paths:
       - 'DWCode/**'
   #pull_request:
     #branches: ["Dev"]
