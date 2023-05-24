@@ -4,10 +4,8 @@ on:
   push:
     #tags: ["V*.*"]
     branches: ["Release*"]
-    paths-ignore:
-      - '.github/workflows/**'
-    #paths:
-     # - 'DWCode/**'
+     paths:
+      - 'DWCode/**'
   #pull_request:
     #branches: ["Dev"]
     
