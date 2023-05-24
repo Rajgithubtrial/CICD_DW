@@ -1,13 +1,13 @@
 name: dev_env
 # Controls when the action will run. 
 on:
-  push:
+  #push:
     #tags: ["V*.*"]
-    branches: ["Release*"]
-    paths:
+    #branches: ["Release*"]
+    #paths:
       - 'DWCode/**'
-  #pull_request:
-    #branches: ["Dev"]
+  pull_request:
+    branches: ["Release*"]
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
