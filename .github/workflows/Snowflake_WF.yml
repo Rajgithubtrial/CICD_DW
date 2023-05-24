@@ -1,8 +1,8 @@
 name: dev_env
 # Controls when the action will run. 
 on:
-  push:
-    tags: ["Tag V*.*"]
+  #push:
+    #tags: ["V*.*"]
    # branches: ["Dev"]
     #paths:
      # - 'DWCode/**'
