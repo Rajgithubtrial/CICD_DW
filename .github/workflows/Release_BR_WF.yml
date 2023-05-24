@@ -1,0 +1,42 @@
+name: dev_env
+# Controls when the action will run. 
+on:
+  push:
+    #tags: ["V*.*"]
+    branches: ["Release*"]
+    paths-ignore:
+      - '.github/workflows/**'
+    #paths:
+     # - 'DWCode/**'
+  #pull_request:
+    #branches: ["Dev"]
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy-snowflake-changes-jobs_Stage:
+    runs-on: ubuntu-latest
+    environment: 'TEST'
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use Python 3.8.x
+        uses: actions/setup-python@v2.2.1
+        with:
+          python-version: 3.8.x
+       
+        
+      - name: Run schemachange
+        env:
+          SF_ACCOUNT: ${{ secrets.TEST_SF_ACCOUNT }}
+          SF_USERNAME: ${{ secrets.TEST_SF_USERNAME }}
+          SF_ROLE: ${{ secrets.TEST_SF_ROLE }}
+          SF_WAREHOUSE: ${{ secrets.TEST_SF_WAREHOUSE }}
+          SF_DATABASE: ${{ secrets.TEST_SF_DATABASE }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.TEST_SF_PASSWORD }}
+        run: |
+          echo " TEST Release Branches"
